@@ -6,6 +6,7 @@ var gulp = require("gulp"),
     livereload = require('gulp-livereload'),
     autoprefixer = require('gulp-autoprefixer'),
     minifycss = require('gulp-minify-css'),
+    cleanCSS = require('gulp-clean-css'),
     rename = require('gulp-rename'),
     gutil = require('gulp-util'),
     concat = require('gulp-concat'),
@@ -25,6 +26,12 @@ gulp.task('compile-sass', function () {
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('./public/styles/'));
 
+});
+
+gulp.task('minify-css', function() {
+  return gulp.src('./public/styles/stylesheet.css')
+    .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(gulp.dest('./public/styles/'));
 });
 
 // B. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -50,7 +57,7 @@ gulp.task('scripts', function() {
 
 // C. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-// B. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// D. STOP, COLLABORATE AND LISTEN ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 gulp.task("start", function () {
 
@@ -80,3 +87,5 @@ gulp.task("start", function () {
         
 
 });
+
+// D. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
