@@ -1,0 +1,47 @@
+<!-- C.1. MASTHEAD -->
+
+<section class="header"> 
+
+    <!-- C.1.1. Logo -->
+    <figure class="logo" id="siteLogo">
+        <a ui-sref="home">
+            <img class="logo__img" src="assets/images/logo.png" alt="lab test" />
+        </a>
+    </figure>
+
+    <!-- C.1.2. DESKTOP NAV -->
+
+    <nav class="nav" ng-class="{'on': divOn }">
+        <ul>
+            <li><a class="textLink" href="#">What are we about?</a></li>
+            <li><a class="textLink" href="#">Life stages</a></li>
+            <li><a class="textLink" href="#">Products</a></li>
+            <li><a class="textLink" href="#">More</a></li>
+
+            <!-- search icon -->
+
+            <li>
+                <a class="textLink" href="#">
+                <img class="search" src="assets/images/search.png" alt="search" />
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <!-- contact number -->
+
+    <ul class="contact-number">
+
+        <li>0845 555 0600</li>
+
+    </ul>
+
+    <a class="c-hamburger c-hamburger--rot burger" ng-class="{'is-active': divOn }" ng-click="upDown()">
+        <span>toggle menu</span>
+    </a> 
+
+</section>
+
+<!-- C.1. END -->

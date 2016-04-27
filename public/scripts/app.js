@@ -25,7 +25,7 @@
 // A. BOOTSTRAP SCRIPT ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 $(document).ready(function () {
-    // are we running in native app or in a browser?
+
     window.isphone = false;
     if (document.URL.indexOf("http://") === -1
             && document.URL.indexOf("https://") === -1) {
@@ -75,10 +75,6 @@ var app = angular.module('app', [
     'ngSanitize',
     'ngTouch',
     'angulartics',
-    'ionic.contrib.ui.hscrollcards',
-    'videosharing-embed',
-    'ngVideoPreview',
-    'duScroll',
     'globalController'
 
 ]);
@@ -91,7 +87,7 @@ var app = angular.module('app', [
 // B.2. staging: 
 // B.3. production: 
 
-var endPoint = 'http://5fdf98b83bfb44ecbadef25a8f77c3ed.cloudapp.net';
+var endPoint = '';
  
 // B. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -122,7 +118,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
                 // A.1. ANONYMOUS ROUTING -----------------------------------------------------------------------------
 
                 .state('home', {
-                    templateUrl: 'index.html'
+                    url: '/home',
+                    templateUrl: 'partials/home/page.home.html'
                 })
 
 
@@ -166,41 +163,46 @@ globalController.controller(
             
             function ($scope, $state, $http, $location, $rootScope) {
 
-
                 // B.1. HELPER VARIABLES ------------------------------------------------------------------------------
 
-                $scope.snippets = 'assets/includes/snippets/';
-                $scope.sections = 'assets/includes/sections/';
-                $scope.icons = 'assets/includes/icons/';
+                $scope.snippets =   'assets/includes/snippets/';
+                $scope.sections =   'assets/includes/sections/';
+                $scope.icons =      'assets/includes/icons/';
+                
+                $scope.page = { 'class': 'home' }; 
 
                 // B.1. END -------------------------------------------------------------------------------------------
 
                 // B.2. MOBILE LISTENER -------------------------------------------------------------------------------
 
                 var screen = $( window ).width();
-                console.log('I am a phone, and my width is: ' + screen);
+                
+                console.log('I am a device, and my width is: ' + screen);
+                
+                console.log( 'Global Controller' );
 
                 // B.2. END -------------------------------------------------------------------------------------------
+     
+                // B.3. DATA ------------------------------------------------------------------------------------------
                 
-                // B.3. END -------------------------------------------------------------------------------------------
-                
-                $scope.toTheTop = function() {
-                  $document.scrollTopAnimated(0, 1000).then(function() {
-                    console && console.log('You just scrolled to the top!');
-                  });
-                }
-                
-                // B.3. END -------------------------------------------------------------------------------------------
-                
-                // B.4. DATA ------------------------------------------------------------------------------------------
-                
-                // B.3.2. TONPLAYGO
+                // B.3.1. MEMBER DATA
 
-                 $http.get('data/tpg.txt').success(function (data)
+                 $http.get('data/data.json').success(function (data)
                  {
-                     $scope.tpgs = data;
+                     $scope.members = data;
                  });
 
+                // B.3. END -------------------------------------------------------------------------------------------
+                
+                // B.4. BURGER MENU -----------------------------------------------------------------------------------
+                
+                $scope.upDown = function() {
+
+                    $scope.divOn = !$scope.divOn;
+                    $rootScope.viewing = false;
+
+                }
+                
                 // B.4. END -------------------------------------------------------------------------------------------
                 
             }
