@@ -1275,26 +1275,6 @@ input[type='select'] {
 .field__item {
   margin-bottom: 0; }
 
-@media only screen and (max-width: 320px) {
-  .field__item {
-    padding-right: 0; } }
-
-@media only screen and (min-width: 321px) and (max-width: 480px) {
-  .field__item {
-    padding-right: 0; } }
-
-@media only screen and (min-width: 481px) and (max-width: 1023px) {
-  .field__item {
-    padding-right: 10px; } }
-
-@media only screen and (min-width: 1024px) {
-  .field-item {
-    margin-right: 80px; } }
-
-@media only screen and (min-width: 1200px) {
-  .field-item {
-    margin-right: 80px; } }
-
 #masthead .header {
   position: fixed;
   left: 0;
@@ -1636,9 +1616,39 @@ input[type='select'] {
       .section-front .front__text p {
         font-size: 1em; } }
 
-.section-contact .form__contact .single.button {
-  display: inline-block;
-  margin: 20px 0; }
+.section-contact .form__contact .filter {
+  margin: 20px;
+  margin-bottom: 0; }
+  .section-contact .form__contact .filter .field-item {
+    margin: 0; }
+
+.section-contact .form__contact .list {
+  list-style-type: none;
+  margin: 20px;
+  padding: 0; }
+  .section-contact .form__contact .list .member-item {
+    cursor: pointer; }
+    .section-contact .form__contact .list .member-item .member-info {
+      padding: 10px;
+      transition: 0.2s;
+      transition-delay: 0.1s; }
+      .section-contact .form__contact .list .member-item .member-info.odd {
+        background: #DDDDDD; }
+      .section-contact .form__contact .list .member-item .member-info.even {
+        background: #EEEEEE; }
+      .section-contact .form__contact .list .member-item .member-info.active {
+        background: #4A90E2;
+        color: #fff; }
+    .section-contact .form__contact .list .member-item .show-more {
+      font-family: 'roboto', helvetica, arial narrow;
+      padding: 10px;
+      transition: 0.2s;
+      transition-delay: 0.1s; }
+      .section-contact .form__contact .list .member-item .show-more .member-element {
+        display: block; }
+      .section-contact .form__contact .list .member-item .show-more.active {
+        background: #4A90E2;
+        color: #fff; }
 
 .section-contact .contact__aside .grid .two-quarters, .section-contact .contact__aside .tabs .tabs__header .two-quarters, .tabs .section-contact .contact__aside .tabs__header .two-quarters, .section-contact .contact__aside .grid .three-sixths, .section-contact .contact__aside .tabs .tabs__header .three-sixths, .tabs .section-contact .contact__aside .tabs__header .three-sixths, .section-contact .contact__aside .grid .four-eighths, .section-contact .contact__aside .tabs .tabs__header .four-eighths, .tabs .section-contact .contact__aside .tabs__header .four-eighths, .section-contact .contact__aside .grid .five-tenths, .section-contact .contact__aside .tabs .tabs__header .five-tenths, .tabs .section-contact .contact__aside .tabs__header .five-tenths, .section-contact .contact__aside .grid .six-twelfths, .section-contact .contact__aside .tabs .tabs__header .six-twelfths, .tabs .section-contact .contact__aside .tabs__header .six-twelfths, .section-contact .contact__aside .grid .one-half, .section-contact .contact__aside .tabs .tabs__header .one-half, .tabs .section-contact .contact__aside .tabs__header .one-half, .tabs .tabs__header .section-contact .contact__aside .grid li, .section-contact .contact__aside .tabs .tabs__header li, .tabs .section-contact .contact__aside .tabs__header li {
   margin: 10px 0; }

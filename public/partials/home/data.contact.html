@@ -4,63 +4,47 @@
 
         <!-- C.2.2.1. CONTACT AREA -->
 
-        <form class="form__contact two-thirds mobi">
+        <aside class="form__contact two-thirds mobi">
 
-            <ul class="inline menu ">
-                <li><a href="#" class="small text button active">Contact details</a></li>
-                <li><a href="#" class="small text button">How to find us</a></li>
+            <section class="filter">
+
+                <div class="field-item text">
+                    <input type="text" ng-model="query"  placeholder="All field search" >
+                </div>
+
+                <div class="field-item select-box">
+                    <label>Sort by:</label>
+                    <select ng-model="orderProp">
+                        <option value="last_name" id="1">Alphabetical - Surname</option>
+                        <option value="first_name" id="2">Alphabetical - First Name</option>
+                    </select>
+                </div>
+            
+            </section>
+            
+            <ul class="list">
+                
+                <li ng-repeat="member in members | filter:query | orderBy:orderProp" class="member-item">
+                    <div class="member-info" ng-click="slideOpen = !slideOpen" ng-class-odd="'odd'" ng-class-even="'even'" ng-class="{'active' : slideOpen}">
+                        <span class="member-element name">{{ member.first_name }}</span>
+                        <span class="member-element surname">{{ member.last_name }}</span>
+                    </div>
+                    <div class="show-more" ng-show="slideOpen" ng-class="{'active' : slideOpen}" ng-click="slideOpen = !slideOpen">
+                        <span class="member-element email">email: {{ member.email_address }}</span>
+                        <span class="member-element birthday">Birthday: {{ member.date_of_birth }}</span>
+                        <span class="member-element physical">
+                            <span class="address">{{ member.address }}</span>
+                            <span class="city">{{ member.city }}</span>
+                            <span class="country">{{ member.country }}</span>
+                            <span class="code">{{ member.zip_code }}</span>
+                        </span>
+                    </div>
+                
+                </li>
+            
             </ul>
-            <h3>We're only a phone call away</h3>
-            <p>Our team is always ready to help you improve your financial future. Whether you are a new customer or already have a file with us, just fill out the relevant form below and we will contact you as soon as we can. </p>
-            <h3>0845 555 0600</h3>
-            <h3><strong>info@portalfinancial.co.uk</strong></h3>
-            <h3>Have an expert call you back</h3>
-            <p>Our team is always ready to help you improve your financial future. Whether you are a new customer or already have a file with us, just fill out the relevant form below and we will contact you as soon as we can.</p>
 
-
-            <div class="field-item select-box">
-                <select>
-                    <option>Select a title</option>
-                    <option>Mr</option>
-                    <option>Mrs</option>
-                </select>
-            </div>
-
-            <div class="field-item text">
-                <input type="text" placeholder="First Name*">
-            </div>
-
-            <div class="field-item text">
-                <input type="text" placeholder="Last Name*">
-            </div>
-
-            <div class="field-item text">
-                <input type="text" placeholder="Email*">
-            </div>
-
-            <div class="field-item select-box">
-                <select>
-                    <option>Please select enquiry type*</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                </select>
-            </div>
-
-            <div class="field-item select-box">
-                <select>
-                    <option>Prefered call back time*</option>
-                    <option>AM</option>
-                    <option>PM</option>
-                </select>
-            </div>
-
-            <a class="single blue button active" >Submit Form</a>
-
-            <h3>Opening times</h3>
-            <p>Mon - Fri 8am to 6pm,Sat &amp; Sun - Closed</p>
-
-        </form>
+        </aside>
 
         <!-- C.2.2.2. CONTACT SIDE -->
 
